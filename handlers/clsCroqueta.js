@@ -105,7 +105,7 @@ const total = async (conn, idUser)=> {
 
     try {
         //conn = await bbdd.pool.getConnection();
-        const rows = await conn.query("SELECT total FROM `croquetas` WHERE id_user="+idUser);
+        const rows = await conn.query(`SELECT total FROM croquetas WHERE id_user=${idUser}`);
         //conn.end();
 
         if (rows.length===1) return rows[0].total;
@@ -121,7 +121,7 @@ const totalcastigos = async (conn, idUser)=> {
 
     try {
         //conn = await bbdd.pool.getConnection();
-        const rows = await conn.query(`SELECT castigos FROM "croquetas" WHERE id_user=${idUser}`);
+        const rows = await conn.query(`SELECT castigos FROM croquetas WHERE id_user=${idUser}`);
         //conn.end();
 
         if (rows.length===1) return rows[0].castigos;
